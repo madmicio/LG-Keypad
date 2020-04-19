@@ -1,31 +1,31 @@
 # Channel Pad for LG WebOs TV
 
 
-![all](example/channels.jpg)
+![all](example/pad.png)
 
 ## hacs Card install
 1. add custom reposity: madmicio/channel-pad as plugin.
 
-2. install `LG WebOS channel pad` plugin
+2. install `LG Keypad` plugin
 
 3. Add a reference  inside your resources config:
 
   ```yaml
 resources:
   - type: module
-    url: /hacsfiles/channel-pad/card-channel-pad.js
+    url: /hacsfiles/card-numeric-pad/card-numeric-pad.js
 ```
 
 
 ### Manual install
 
-1. Download and copy `lg-remote-control.js` from (https://github.com/madmicio/channel-pad/) into your custom components  directory.
+1. Download and copy `card-numeric-pad.js` from (https://github.com/madmicio/LG-Keypad) into your custom components  directory.
 
-2. Add a reference `lg-remote-control.js` inside your resources config:
+2. Add a reference `card-numeric-pad.js` inside your resources config:
 
  ```yaml
   resources:
-    - url: /local/"your_directory"/card-channel-pad.js
+    - url: /local/"your_directory"/card-numeric-pad.js
       type: module
 ```
 
@@ -33,17 +33,9 @@ resources:
 lovelace config:
 
  ```yaml
-type: 'custom:card-channel-pad'
-entities: #!include: /local/lg_remote/channel-pad-entities.yaml
+type: 'custom:card-numeric-pad'
+entities:
   - entity: media_player.tv_lg_55c8
-    image: "url('/local/lg_remote/tv_logos/Rai 1 HD.png')"
-    number: '501'
-  - entity: media_player.tv_lg_55c8
-    image: "url('/local/lg_remote/tv_logos/Rai 2 HD.png')"
-    number: '502'
-  - entity: media_player.tv_lg_55c8
-    image: "url('/local/lg_remote/tv_logos/Rai 3 HD.png')"
-    number: '503' 
 ```
 
 
