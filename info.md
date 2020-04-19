@@ -1,4 +1,4 @@
 # Channel Pad for LG WebOs TV
 
 
-![all](example/channels.jpg)
+![all](example/pad.png)
