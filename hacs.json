@@ -1,6 +1,6 @@
 {
-"name": "LG WebOS channel pad",
+"name": "LG WebOS keypad",
 "content_in_root": false,
-"filename": "card-channel-pad.js",
+"filename": "card-numeric-pad.js",
 "render_readme" : true
 }
