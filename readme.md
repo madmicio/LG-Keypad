@@ -12,8 +12,8 @@
 
   ```yaml
 resources:
-  - type: module
-    url: /hacsfiles/card-numeric-pad/card-numeric-pad.js
+- type: module
+  url: /hacsfiles/LG-Keypad/card-numeric-pad.js
 ```
 
 
