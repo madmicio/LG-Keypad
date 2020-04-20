@@ -13,7 +13,7 @@
   ```yaml
 resources:
 - type: module
-  url: /hacsfiles/LG-Keypad/card-numeric-pad.js
+    url: /hacsfiles/LG-Keypad/card-numeric-pad.js
 ```
 
 
