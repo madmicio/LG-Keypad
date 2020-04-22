@@ -34,8 +34,7 @@ lovelace config:
 
  ```yaml
 type: 'custom:card-numeric-pad'
-entities:
-  - entity: media_player.tv_lg_55c8
+entity: media_player.tv_lg_55c8
 ```
 
 
