@@ -3,37 +3,38 @@ import {
     html,
     css
 } from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
-class CardNumericPad extends LitElement {
-  
-  static get properties() {
-    return {
-      hass: {},
-      config: {},
-      active: {}
-    };
-  }
-  
-  constructor() {
-    super();
-  }
-  
-  render() {
-    var coverWidth = this.config.coverWidth ? this.config.coverWidth : "80px";
-    var coverHeight = this.config.coverHeight ? this.config.coverHeight : "670px";
-    var sliderdistance = this.config.sliderdistance ? this.config.sliderdistance : "150px";
-    
-    var entityCounter = 0;
-    
 
-    var background = this.config.background ? this.config.background : "transparent";
-    
-    
-    return html`
+class CardNumericPad extends LitElement {
+
+    static get properties() {
+        return {
+            hass: {},
+            config: {},
+            active: {}
+        };
+    }
+
+    constructor() {
+        super();
+    }
+
+    render() {
+        var coverWidth = this.config.coverWidth ? this.config.coverWidth : "80px";
+        var coverHeight = this.config.coverHeight ? this.config.coverHeight : "670px";
+        var sliderdistance = this.config.sliderdistance ? this.config.sliderdistance : "150px";
+
+        var entityCounter = 0;
+
+
+        var background = this.config.background ? this.config.background : "transparent";
+
+
+        return html`
       ${this.config.entities.map(ent => {
-          entityCounter++;
-          var switchValue = 0;
-          const stateObj = this.hass.states[ent.entity];
-          return stateObj ? html`
+            entityCounter++;
+            var switchValue = 0;
+            const stateObj = this.hass.states[ent.entity];
+            return stateObj ? html`
                 <div class="grid-container">
                   <div class="grid-item">
                     <button class="btn ripple" @click=${e => this._1(stateObj)}>1</button>
@@ -72,103 +73,98 @@ class CardNumericPad extends LitElement {
                     <button class="btn"></button>
                   </div> 
                 </div>
-          `: html``;
-      })}
+          ` : html``;
+        })}
     `;
-  }
-    
-  updated() {}
-
-  _1(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "1" 
-    });
-  }
-
-  _2(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "2" 
-    });
-  }
-  
-  _3(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "3" 
-    });
-  }
-  
-  _4(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "4" 
-    });
-  }
-  
-  _5(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "5" 
-    });
-  }
-  
-  _6(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "6" 
-    });
-  }
-  
-  _7(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "7" 
-    });
-  }
-  
-  _8(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "8" 
-    });
-  }
-  
-  _9(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "9" 
-    });
-  }
-  
-  _0(state, value) {
-    this.hass.callService("webostv", "button", {
-        entity_id: state.entity_id,
-        button: "0" 
-    });
-  }
-  
-
-
-
-
-  
-
-  
-  setConfig(config) {
-    if (!config.entities) {
-      throw new Error("You need to define entities");
     }
-    this.config = config;
-  }
 
-  getCardSize() {
-    return this.config.entities.length + 1;
-  }
-  
-  static get styles() {
-    return css`
+    updated() {
+    }
+
+    _1(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "1"
+        });
+    }
+
+    _2(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "2"
+        });
+    }
+
+    _3(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "3"
+        });
+    }
+
+    _4(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "4"
+        });
+    }
+
+    _5(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "5"
+        });
+    }
+
+    _6(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "6"
+        });
+    }
+
+    _7(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "7"
+        });
+    }
+
+    _8(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "8"
+        });
+    }
+
+    _9(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "9"
+        });
+    }
+
+    _0(state, value) {
+        this.hass.callService("webostv", "button", {
+            entity_id: state.entity_id,
+            button: "0"
+        });
+    }
+
+
+    setConfig(config) {
+        if (!config.entities) {
+            throw new Error("You need to define entities");
+        }
+        this.config = config;
+    }
+
+    getCardSize() {
+        return this.config.entities.length + 1;
+    }
+
+    static get styles() {
+        return css`
     .grid-container {
       display: grid;
       grid-template-columns: auto auto auto;
@@ -228,8 +224,8 @@ class CardNumericPad extends LitElement {
     }
     button:focus {outline:0;}
     `;
-  }  
-  
+    }
+
 }
 
 customElements.define('card-numeric-pad', CardNumericPad);
