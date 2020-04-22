@@ -19,41 +19,40 @@ class CardNumericPad extends LitElement {
     }
 
     render() {
-        const entityId = this.config.entity;
         return html`
            <div class="grid-container">
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "1")}>1</button>
+               <button class="btn ripple" @click=${() => this._click_button("1")}>1</button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "2")}>2</button>
+               <button class="btn ripple" @click=${() => this._click_button("2")}>2</button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "3")}>3</button>
+               <button class="btn ripple" @click=${() => this._click_button("3")}>3</button>
              </div> 
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "4")}>4</button>
+               <button class="btn ripple" @click=${() => this._click_button("4")}>4</button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "5")}>5</button>
+               <button class="btn ripple" @click=${() => this._click_button("5")}>5</button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "6")}>6</button>
+               <button class="btn ripple" @click=${() => this._click_button("6")}>6</button>
              </div> 
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "7")}>7</button>
+               <button class="btn ripple" @click=${() => this._click_button("7")}>7</button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "8")}>8</button>
+               <button class="btn ripple" @click=${() => this._click_button("8")}>8</button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "9")}>9</button>
+               <button class="btn ripple" @click=${() => this._click_button("9")}>9</button>
              </div>
              <div class="grid-item">
                <button class="btn"></button>
              </div>
              <div class="grid-item">
-               <button class="btn ripple" @click=${() => this._click_button(entityId, "0")}>0</button>
+               <button class="btn ripple" @click=${() => this._click_button("0")}>0</button>
              </div>
              <div class="grid-item">
                <button class="btn"></button>
@@ -65,9 +64,9 @@ class CardNumericPad extends LitElement {
     updated() {
     }
 
-    _click_button(entityId, button) {
+    _click_button(button) {
         this.hass.callService("webostv", "button", {
-            entity_id: entityId,
+            entity_id: this.config.entity,
             button: button
         });
     }
