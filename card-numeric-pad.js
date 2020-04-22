@@ -19,148 +19,68 @@ class CardNumericPad extends LitElement {
     }
 
     render() {
-        var coverWidth = this.config.coverWidth ? this.config.coverWidth : "80px";
-        var coverHeight = this.config.coverHeight ? this.config.coverHeight : "670px";
-        var sliderdistance = this.config.sliderdistance ? this.config.sliderdistance : "150px";
-
-        var entityCounter = 0;
-
-
-        var background = this.config.background ? this.config.background : "transparent";
-
-
+        const entityId = this.config.entity;
         return html`
-      ${this.config.entities.map(ent => {
-            entityCounter++;
-            var switchValue = 0;
-            const stateObj = this.hass.states[ent.entity];
-            return stateObj ? html`
-                <div class="grid-container">
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._1(stateObj)}>1</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._2(stateObj)}>2</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._3(stateObj)}>3</button>
-                  </div> 
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._4(stateObj)}>4</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._5(stateObj)}>5</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._6(stateObj)}>6</button>
-                  </div> 
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._7(stateObj)}>7</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._8(stateObj)}>8</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._9(stateObj)}>9</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn"></button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn ripple" @click=${e => this._0(stateObj)}>0</button>
-                  </div>
-                  <div class="grid-item">
-                    <button class="btn"></button>
-                  </div> 
-                </div>
-          ` : html``;
-        })}
-    `;
+           <div class="grid-container">
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "1")}>1</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "2")}>2</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "3")}>3</button>
+             </div> 
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "4")}>4</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "5")}>5</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "6")}>6</button>
+             </div> 
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "7")}>7</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "8")}>8</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "9")}>9</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn"></button>
+             </div>
+             <div class="grid-item">
+               <button class="btn ripple" @click=${() => this._click_button(entityId, "0")}>0</button>
+             </div>
+             <div class="grid-item">
+               <button class="btn"></button>
+             </div> 
+           </div>
+          `;
     }
 
     updated() {
     }
 
-    _1(state, value) {
+    _click_button(entityId, button) {
         this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "1"
+            entity_id: entityId,
+            button: button
         });
     }
-
-    _2(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "2"
-        });
-    }
-
-    _3(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "3"
-        });
-    }
-
-    _4(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "4"
-        });
-    }
-
-    _5(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "5"
-        });
-    }
-
-    _6(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "6"
-        });
-    }
-
-    _7(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "7"
-        });
-    }
-
-    _8(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "8"
-        });
-    }
-
-    _9(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "9"
-        });
-    }
-
-    _0(state, value) {
-        this.hass.callService("webostv", "button", {
-            entity_id: state.entity_id,
-            button: "0"
-        });
-    }
-
 
     setConfig(config) {
-        if (!config.entities) {
+        if (!config.entity) {
             throw new Error("You need to define entities");
         }
         this.config = config;
     }
 
     getCardSize() {
-        return this.config.entities.length + 1;
+        return 2;
     }
 
     static get styles() {
