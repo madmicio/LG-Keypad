@@ -74,7 +74,7 @@ class CardNumericPad extends LitElement {
 
     setConfig(config) {
         if (!config.entity) {
-            throw new Error("You need to define entities");
+            throw new Error("You need to define entity");
         }
         this.config = config;
     }
